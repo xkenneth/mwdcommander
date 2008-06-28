@@ -1,7 +1,7 @@
 import grok
 from megrok.kss import KSSActions
 
-from viewletmanagers import Navigation
+from viewletmanagers import Navigation, MainContent
 
 class AppKSS(KSSActions):
 
@@ -14,3 +14,7 @@ class MWDCommander(grok.Application, grok.Container):
 
 class Index(grok.View):
     pass # see app_templates/index.pt
+
+class Welcome(grok.Viewlet):
+    grok.viewletmanager(MainContent)
+    grok.view(Index)
