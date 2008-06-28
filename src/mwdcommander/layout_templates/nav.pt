@@ -3,6 +3,9 @@
     <td>
       <a tal:attributes="href python: view.__parent__.application_url('')">Home</a>
     </td>
+    <td>
+      <a tal:attributes="href python: view.__parent__.application_url('pipetallies')">Pipe Tallies</a>
+    </td>
   </tr>
 </table>
   
