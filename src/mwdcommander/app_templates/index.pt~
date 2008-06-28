@@ -1,11 +1,19 @@
 <html>
-<head>
-</head>
+  <head>
+    <tal:kss_javascript replace="structure context/@@kss_javascript" />
+    <link tal:attributes="href static/app.kss" rel="kinetic-stylesheet" type="text/kss" />
+  </head>
 <body>
-  <h1>Congratulations!</h1>
-
-  <p>Your Grok application is up and running.
-  Edit <code>mwdcommander/app_templates/index.pt</code> to change
-  this page.</p>
+  <table>
+    <tr>
+      <td>
+	</td>
+      </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      </tr>
+    </table>
+  
 </body>
 </html>

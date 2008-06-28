@@ -1,6 +1,8 @@
 import grok
 from megrok.kss import KSSActions
 
+from viewletmanagers import Navigation
+
 class AppKSS(KSSActions):
 
     def welcome(self):
