@@ -81,7 +81,7 @@ class AddPipeTallyLogForm(grok.AddForm):
         try:
             self.context['pipetallies']
         except:
-            self.context['pipetallies'] = GenericContainer()
+            self.context['pipetallies'] = GenericContainer('Pipe Tally Container',0)
             self.context['pipetallies'].tally_log_index = 0
             self.context['pipetallies'].item_order = PersistentList()
         

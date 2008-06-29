@@ -19,15 +19,7 @@ class IPipeTallyLog(Interface):
     name = TextLine(title=u"Name:")
 
 class PipeTallyLog(GenericContainer):
-
     grok.implements(IPipeTallyLog)
-
-    def __init__(self, name , id):
-	super(PipeTallyLog, self).__init__()
-        self.name = name
-        self.id = id
-	self.tally_count = 0
-	self.item_order = PersistentList()
 
 class Index(grok.View):
     pass

@@ -9,8 +9,10 @@ from persistent.list import PersistentList
 ### BOILERPLATE ###
 
 class GenericContainer(grok.Container):
-    def __init__(self):
+    def __init__(self, name, id=None):
         super(GenericContainer, self).__init__()
+        self.name = name
+        self.id = id
         self.item_count = 0
         self.item_order = PersistentList()
 
@@ -23,6 +25,9 @@ class GenericContainer(grok.Container):
         t = self.items()
         t.reverse()
         return t
+
+    def delete(self,id):
+        self.item_order.pop(self.item_order.index(int(id)))
 
 class Index(grok.View):
     pass
