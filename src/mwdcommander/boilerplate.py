@@ -29,6 +29,12 @@ class GenericContainer(grok.Container):
     def delete(self,id):
         self.item_order.pop(self.item_order.index(int(id)))
 
+    def add_item(self,item):
+        self[unicode(self.item_count)] = item
+        self.item_order.append(self.item_count)
+        self.item_count += 1
+            
+
 class Index(grok.View):
     pass
 

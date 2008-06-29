@@ -21,6 +21,7 @@ setup(name='MWDCommander',
       install_requires=['setuptools',
                         'grok',
                         'megrok.kss',
+                        'megrok.form',
                         # Add extra requirements here
                         ],
       entry_points="""
