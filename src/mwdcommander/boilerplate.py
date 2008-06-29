@@ -6,7 +6,10 @@ grok.templatedir('app_templates')
 ### BOILERPLATE ###
 
 class GenericContainer(grok.Container):
-    pass
+    def items(self):
+        t = []
+        for key in self.item_order: t.append(self[unicode(key)])
+        return t
 
 class Index(grok.View):
     pass

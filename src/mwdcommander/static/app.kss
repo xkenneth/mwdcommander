@@ -1,3 +1,8 @@
 #click-me:click {
      action-server: welcome;
 }
+
+#delete-pipe-tally-log:click {
+    action-server: delete_pipe_tally_log;
+    delete_pipe_tally_log-logid: nodeAttr(logid);
+}	  

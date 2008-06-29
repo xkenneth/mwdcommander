@@ -1,0 +1,3 @@
+This is the view of a pipe tally log!
+
+<a tal:attributes="href python: view.url('edit')">Edit</a>
