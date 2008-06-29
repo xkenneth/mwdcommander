@@ -4,6 +4,8 @@ import pdb
 
 ### APP ###
 from viewletmanagers import MainContent
+from pipetally import PipeTally, IPipeTally
+from boilerplate import get_application, GenericContainer
 
 ### ZOPE ###
 from zope.component import getMultiAdapter
@@ -16,7 +18,7 @@ grok.templatedir('app_templates')
 class IPipeTallyLog(Interface):
     name = TextLine(title=u"Name:")
 
-class PipeTallyLog(grok.Container):
+class PipeTallyLog(GenericContainer):
 
     grok.implements(IPipeTallyLog)
 
@@ -25,7 +27,7 @@ class PipeTallyLog(grok.Container):
         self.name = name
         self.id = id
 	self.tally_count = 0
-	self.tally_order = PersistentList()
+	self.item_order = PersistentList()
 
 class Index(grok.View):
     pass
@@ -36,9 +38,9 @@ class Edit(grok.View):
 
 class ViewPipeTallyLog(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(0)
+    grok.order(1)
     grok.view(Index)
-
+    
 class EditPipeTallyLog(grok.Viewlet):
     grok.viewletmanager(MainContent)
     grok.order(0)
@@ -54,6 +56,38 @@ class EditPipeTallyLog(grok.Viewlet):
 class EditPipeTallyLogForm(grok.EditForm):
     form_fields = grok.AutoFields(PipeTallyLog)
     template = grok.PageTemplate(filename=os.path.join('app_templates','edit_form.pt'))
+
+### PIPE TALLY ###
+#VIEWLETS
+class AddPipeTally(grok.Viewlet):
+    grok.viewletmanager(MainContent)
+    grok.order(0)
+    grok.view(Index)
+    grok.context(PipeTallyLog)
+    
+    def update(self):
+        self.form = getMultiAdapter((self.context, self.request), name=u'addpipetallyform')
+        self.form.update_form()
+
+    def render(self):
+        return self.form.render()
+
+class AddPipeTallyForm(grok.AddForm):
+    grok.context(PipeTallyLog)
+    form_fields = grok.AutoFields(PipeTally)
+    template = grok.PageTemplate(filename=os.path.join('app_templates','edit_form.pt'))
+
+    @grok.action('Add pipetally')
+    def add(self, **data):
+        data['id'] = self.context.item_count
+        obj = PipeTally(**data)
+
+        self.context[unicode(self.context.item_count)] = obj
+        self.context.item_order.append(self.context.item_count)
+        self.context.item_count += 1
+        
+        app = get_application(self.context)
+        self.redirect(self.url('index'))
         
 
     

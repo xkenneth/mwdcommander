@@ -1,3 +1,16 @@
-This is the view of a pipe tally log!
-
 <a tal:attributes="href python: view.url('edit')">Edit</a>
+
+<table>
+  <tr>
+    <td>Length</td>
+  </tr>
+  <tr tal:repeat="tally context/inverse_items">
+    <div tal:attributes="id tally/id">
+      <td>
+        <a tal:attributes="href python: view.url(str(tally.id))" tal:content="tally/length"/>
+      </td>
+    </div>
+  </tr>
+
+</table>
+
