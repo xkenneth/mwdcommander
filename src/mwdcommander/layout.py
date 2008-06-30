@@ -9,5 +9,11 @@ from viewletmanagers import Navigation, MainContent
 class Nav(grok.Viewlet):
     grok.viewletmanager(Navigation)
     grok.context(Interface)
+    grok.order(1)
+
+class Title(grok.Viewlet):
+    grok.viewletmanager(Navigation)
+    grok.context(Interface)
+    grok.order(0)
 
 

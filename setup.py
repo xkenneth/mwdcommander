@@ -21,6 +21,7 @@ setup(name='MWDCommander',
       install_requires=['setuptools',
                         'grok',
                         'megrok.form',
+                        'PyDrill',
                         # Add extra requirements here
                         ],
       entry_points="""

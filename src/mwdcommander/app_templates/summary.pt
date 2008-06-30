@@ -1,0 +1,167 @@
+<table>
+  <tr>
+    <td><b><center>Pulses</center></b></td>
+    <td><b><center>Chirps</center></b></td>
+    <td><b><center>Tool Status</center></b></td>
+  </tr>
+  <tr>
+    <td>
+      
+      <table>
+      	<p tal:on-error="string: Error! No Data is available!">
+	   <tr tal:repeat="test python:context.td_db.slice('pulse',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+
+    </td>
+
+    <td>
+      <table>
+      	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('symbol',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('toolstatus',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td><b><center>Gamma Ray</center></b></td>
+    <td><b><center>Azimuth</center></b></td>
+    <td><b><center>Inclination</center></b></td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('gammaray',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('azimuth',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('inclination',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td><b><center>gx</center></b></td>
+    <td><b><center>gy</center></b></td>
+    <td><b><center>gz</center></b></td>
+  </tr>
+
+  <tr>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('gx',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('gy',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+    
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('gz',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td><b><center>hx</center></b></td>
+    <td><b><center>hy</center></b></td>
+    <td><b><center>hz</center></b></td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('hx',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('hy',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+    
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('hz',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td><b><center>Pulse Count</center></b></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr tal:repeat="test python:context.td_db.slice('inclinationcount',last=10)">
+	    <td tal:content="test"></td>
+	  </tr>
+	</p>
+      </table>
+    </td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+

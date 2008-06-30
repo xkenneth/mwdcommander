@@ -1,0 +1,220 @@
+<table border=1 cellpadding=45 id="update-big">
+  <tr>
+    <td><font size=5><b><center>Inclination</center></b></font></td>
+    <td><font size=5><b><center>Azimuth</center></b></font></td>
+    <td><font size=5><b><center>Gamma Ray</center></b></font></td>
+    <td><font size=5><b><center>ToolFace</center></b></font></td>
+    <td><font size=5><b><center>Temperature</center></b></font></td>
+    <td><font size=5><b><center>Pressure</center></b></font></td>
+  </tr>
+  <tr>
+    <td>
+      
+      <table>
+	<p tal:on-error="string: Error! No Data is available!">
+	  <tr>
+	    <td>
+	      <font color="green" size=100><b>
+		  <p tal:content="python:context.td_db.slice('inclination',last=1)[0].value*180.0/10000.0"></p>
+	      </b></font>
+	    </td>
+	  </tr>
+	</p>
+      </table>
+      
+    </td>
+    
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100 color="red"><b>
+		    <p tal:content="python:context.td_db.slice('azimuth',last=1)[0].value*360.0/10000.0"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100 color="blue"><b>
+		    <p tal:content="python:'%5.2f' % float(pow(10.0,(context.td_db.slice('gammaray',last=1)[0].value*2.0/10000.0))*5.0)"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('toolface',last=1)[0].value*360.0/10000.0"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('temperature',last=1)[0].value*500.0/10000.0"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('pressure',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+  </tr>
+  <tr>
+    <td><font size=5><b><center>GX</center></b></font></td>
+    <td><font size=5><b><center>GY</center></b></font></td>
+    <td><font size=5><b><center>GZ</center></b></font></td>
+    <td><font size=5><b><center>HX</center></b></font></td>
+    <td><font size=5><b><center>HY</center></b></font></td>
+    <td><font size=5><b><center>HZ</center></b></font></td>
+  </tr>
+  
+  <tr>
+    
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('gx',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('gy',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('gz',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('hx',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('hy',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+    <td>
+      <center>
+	<table>
+	  <p tal:on-error="string: Error! No Data is available!">
+	    <tr>
+	      <td>
+		<font size=100><b>
+		    <p tal:content="python:context.td_db.slice('hz',last=1)[0].value"></p>
+		</b></font>
+	      </td>
+	    </tr>
+	  </p>
+	</table>
+      </center>
+      
+    </td>
+  </tr>
+</table>
+
+

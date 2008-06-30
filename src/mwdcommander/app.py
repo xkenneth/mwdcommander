@@ -6,6 +6,9 @@ import os
 import pdb
 import mx.DateTime
 
+### PYDRILL ###
+from PyDrill import DataBase
+
 ### KSS ###
 #from megrok.kss import KSSActions
 
@@ -17,7 +20,7 @@ from zope.interface import Interface
 from persistent.list import PersistentList
 
 ### APP ###
-from viewletmanagers import Navigation, MainContent
+from viewletmanagers import Navigation, MainContent, Head
 from boilerplate import GenericContainer, get_application
 from pipetallylog import PipeTallyLog, IPipeTallyLog
 from comment import Comment, IComment
@@ -39,13 +42,79 @@ from depth import Depth, IDepth
         
 ### MWD ###
 class MWDCommander(grok.Application, grok.Container):
-    pass
+    td_db = DataBase.Layer("localhost",8050)
 
 ### VIEWS ###
-
 class Index(grok.View):
     grok.context(MWDCommander)
     pass # see app_templates/index.pt
+
+class BigNumbers(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class MWD(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+    def update(self):
+        pass
+
+class Pulses(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class Chirps(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class Frames(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class ToolStatus(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class GammaRay(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class Azimuth(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class Inclination(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class GX(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class GY(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class GZ(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class HX(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class HY(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class HZ(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
+class PulseCount(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
 
 class PipeTally(grok.View):
     grok.template('index')
@@ -73,9 +142,16 @@ class DepthLog(grok.View):
             self.context['depthlist'] = GenericContainer('Depth Container',0)
 
 ### VIEWLETS ###
+
+class AppCSS(grok.Viewlet):
+    grok.viewletmanager(Head)
+    grok.context(MWDCommander)
+
 class Welcome(grok.Viewlet):
     grok.viewletmanager(MainContent)
     grok.view(Index)
+
+
 
 class PipeTallyLogList(grok.Viewlet):
     grok.viewletmanager(MainContent)
@@ -215,7 +291,6 @@ class MWDCommanderXMLRPC(grok.XMLRPC):
         delta = float(delta)/60.0
         
         data = [delta,save]
-        pdb.set_trace()
 
         return data
 

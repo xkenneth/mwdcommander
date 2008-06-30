@@ -1,0 +1,7 @@
+<div tal:on-error="string: Error! No Data is available!">
+  <table>
+    <tr tal:repeat="test python:context.td_db.slice('inclinationcount',last=10)">
+      <td tal:content="test"></td>
+    </tr>
+  </table>
+</div>

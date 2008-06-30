@@ -1,5 +1,6 @@
 <html>
   <head>
+    <tal:head content="structure provider:head" />
   </head>
   <body>
     <table>
@@ -9,7 +10,7 @@
 	</td>
       </tr>
       <tr>
-	<td><div id="click-me">hallo</div></td>
+	<td><tal:left content="structure provider:left" /></td>
 	<td><tal:content content="structure provider:content" /></td>
       </tr>
     </table>
