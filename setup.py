@@ -20,7 +20,6 @@ setup(name='MWDCommander',
       zip_safe=False,
       install_requires=['setuptools',
                         'grok',
-                        'megrok.kss',
                         'megrok.form',
                         # Add extra requirements here
                         ],

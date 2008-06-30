@@ -1,0 +1,7 @@
+<p>
+<a tal:attributes="href python: view.url('edit')">Edit</a>
+</p>
+<a tal:attributes="href python: view.url('delete')+'?id='+str(context.id)">Delete</a>
+<p>Pipe</p>
+<p>Length:</p>
+<p tal:content="context/length"/>

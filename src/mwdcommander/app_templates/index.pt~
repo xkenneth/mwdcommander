@@ -12,7 +12,7 @@
       </tr>
       <tr>
 	<td><div id="click-me">hallo</div></td>
-	<td></td>
+	<td><tal:content content="structure provider:content" /></td>
       </tr>
     </table>
   </body>

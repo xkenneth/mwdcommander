@@ -1,0 +1,5 @@
+<div tal:repeat="comment context/commentslist/items">
+  <div tal:content="comment/time"/><br>
+  <div tal:content="comment/comment"/><br>
+  <a tal:attributes="href python: str(view.url(view.context['commentslist']))+'/delete?id='+str(comment.id)">Delete</a>
+</div>

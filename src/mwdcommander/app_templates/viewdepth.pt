@@ -1,0 +1,5 @@
+<div tal:repeat="depth context/depthlist/inverse_items">
+  <div tal:content="depth/time"/><br>
+  <div tal:content="depth/depth"/><br>
+  <a tal:attributes="href python: str(view.url(view.context['depthlist']))+'/delete?id='+str(depth.id)">Delete</a>
+</div>

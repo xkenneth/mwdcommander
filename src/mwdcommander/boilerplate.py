@@ -3,6 +3,9 @@ import grok
 
 grok.templatedir('app_templates')
 
+### APP ###
+from viewletmanagers import MainContent
+
 ### ZOPE ###
 from persistent.list import PersistentList
 
@@ -37,6 +40,21 @@ class GenericContainer(grok.Container):
 
 class Index(grok.View):
     pass
+
+class ViewContent(grok.Viewlet):
+    grok.viewletmanager(MainContent)
+    grok.order(0)
+
+class Delete(grok.View):
+    grok.template('index')
+    def update(self,id=None):
+        if id is not None:
+            self.context.delete(id)
+        self.redirect(self.url(self.context))
+
+class DeleteView(grok.Viewlet):
+    grok.viewletmanager(MainContent)
+    grok.order(0)
 
 def get_application(context):
     obj = context
