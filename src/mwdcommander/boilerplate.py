@@ -36,6 +36,14 @@ class GenericContainer(grok.Container):
         self[unicode(self.item_count)] = item
         self.item_order.append(self.item_count)
         self.item_count += 1
+
+    def max(self):
+        if self.items() is not None:
+            return self.items()[-1]
+    
+    def min(self):
+        if self.items is not None:
+            return self.items()[0]
             
 
 class Index(grok.View):

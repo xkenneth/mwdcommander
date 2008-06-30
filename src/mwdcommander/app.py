@@ -4,6 +4,7 @@ import grok
 ### GENERIC ###
 import os
 import pdb
+import mx.DateTime
 
 ### KSS ###
 #from megrok.kss import KSSActions
@@ -195,9 +196,37 @@ class AddDepthForm(grok.AddForm):
 ### XML-RPC ###
 
 class MWDCommanderXMLRPC(grok.XMLRPC):
-    def hello(self):
-        return 'Hello world!'
+    def latestROP(self):
+        try:
+            start = self.context['pipetallies'].max().max().start
+            save = self.context['pipetallies'].max().max().end
+            end = self.context['pipetallies'].max().max().end
+        except IndexError:
+            return None
 
+        if start is None or end is None:
+            return None
+
+        start = mx.DateTime.DateTimeFrom(str(start))
+        end = mx.DateTime.DateTimeFrom(str(end))
+
+        delta = end - start
+
+        delta = float(delta)/60.0
+        
+        data = [delta,save]
+        pdb.set_trace()
+
+        return data
+
+    def latestDepth(self):
+        try:
+            depth = self.context['depthlist'].max()
+        except IndexError:
+            return None
+        
+        return [depth.depth, depth.time]
+    
         
 
         
