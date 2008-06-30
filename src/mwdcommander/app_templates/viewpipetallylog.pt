@@ -9,6 +9,12 @@
       <td>
         <a tal:attributes="href python: view.url(str(tally.id))" tal:content="tally/length"/>
       </td>
+      <td>
+	<a tal:attributes="href python: view.url(str(tally.id))" tal:content="tally/start"/>
+      </td>	
+      <td>
+	<a tal:attributes="href python: view.url(str(tally.id))" tal:content="tally/end"/>
+      </td>
     </div>
   </tr>
 

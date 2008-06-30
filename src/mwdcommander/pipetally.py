@@ -11,8 +11,7 @@ from persistent.mapping import PersistentMapping
 from persistent.list import PersistentList
 from zope.component import getMultiAdapter
 from zope.interface import Interface
-from zope.schema import TextLine
-import zope.schema
+from zope.schema import TextLine, Datetime
 
 ### APP ###
 from viewletmanagers import MainContent
@@ -24,12 +23,16 @@ grok.templatedir('app_templates')
 ### INTERFACE ###
 class IPipeTally(Interface):
     length = TextLine(title=u"Length:",default=u'30')
+    start = Datetime(title=u"Start:",required=False)
+    end = Datetime(title=u"End:",required=False)
 
 ### MODEL ###
 class PipeTally(grok.Model):
     grok.implements(IPipeTally)
 
-    def __init__(self, length, id):
+    def __init__(self, length, id, start=None, end=None):
+        self.start = start
+        self.end = end
         self.length = float(length)
         self.id = int(id)
 

@@ -5,3 +5,8 @@
 <p>Pipe</p>
 <p>Length:</p>
 <p tal:content="context/length"/>
+<p>Start:</p>
+<p tal:content="context/start"/>
+<p>End:</p>
+<p tal:content="context/end"/>
+
