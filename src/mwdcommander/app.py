@@ -192,7 +192,11 @@ class AddDepthForm(grok.AddForm):
 
 
         
-        
+### XML-RPC ###
+
+class MWDCommanderXMLRPC(grok.XMLRPC):
+    def hello(self):
+        return 'Hello world!'
 
         
 
