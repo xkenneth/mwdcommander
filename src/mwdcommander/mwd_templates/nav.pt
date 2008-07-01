@@ -1,13 +1,13 @@
-<a tal:attributes="href python: view.url('pulses')">Pulses</a><br>
-<a tal:attributes="href python: view.url('chirps')">Chirps</a><br>
-<a tal:attributes="href python: view.url('toolstatus')">Tool Status</a><br>
-<a tal:attributes="href python: view.url('gammaray')">Gamma Ray</a><br>
-<a tal:attributes="href python: view.url('azimuth')">Azimuth</a><br>
-<a tal:attributes="href python: view.url('inclination')">Inclination</a><br>
-<a tal:attributes="href python: view.url('gx')">GX</a><br>
-<a tal:attributes="href python: view.url('gy')">GY</a><br>
-<a tal:attributes="href python: view.url('gz')">GZ</a><br>
-<a tal:attributes="href python: view.url('hx')">HX</a><br>
-<a tal:attributes="href python: view.url('hy')">HY</a><br>
-<a tal:attributes="href python: view.url('hz')">HZ</a><br>
-<a tal:attributes="href python: view.url('pulsecount')">Pulse Count</a><br>
+<a tal:attributes="href python: view.url()+'?key=pulse'">Pulses</a><br>
+<a tal:attributes="href python: view.url()+'?key=symbol'">Chirps</a><br>
+<a tal:attributes="href python: view.url()+'?key=toolstatus'">Tool Status</a><br>
+<a tal:attributes="href python: view.url()+'?key=gammaray'">Gamma Ray</a><br>
+<a tal:attributes="href python: view.url()+'?key=azimuth'">Azimuth</a><br>
+<a tal:attributes="href python: view.url()+'?key=inclination'">Inclination</a><br>
+<a tal:attributes="href python: view.url()+'?key=gx'">GX</a><br>
+<a tal:attributes="href python: view.url()+'?key=gy'">GY</a><br>
+<a tal:attributes="href python: view.url()+'?key=gz'">GZ</a><br>
+<a tal:attributes="href python: view.url()+'?key=hx'">HX</a><br>
+<a tal:attributes="href python: view.url()+'?key=hy'">HY</a><br>
+<a tal:attributes="href python: view.url()+'?key=hz'">HZ</a><br>
+<a tal:attributes="href python: view.url()+'?key=pulsecount'">Pulse Count</a><br>

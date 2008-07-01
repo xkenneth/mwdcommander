@@ -62,8 +62,8 @@ class MWD(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
 
-    def update(self):
-        pass
+    def update(self,key=None):
+        self.key = key
 
 class System(grok.View):
     grok.context(MWDCommander)

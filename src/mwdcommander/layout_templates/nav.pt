@@ -4,7 +4,10 @@
       <a tal:attributes="href python: view.url(view.context,'')">Home</a>
     </td>
     <td>	
-      <a tal:attributes="href python: view.url(view.context,'bignumbers')">MWD</a>
+      <a tal:attributes="href python: view.url(view.context,'bignumbers')">Summary</a>
+    </td>
+    <td>	
+      <a tal:attributes="href python: view.url(view.context,'mwd')">MWD</a>
     </td>
     <td>
       <a tal:attributes="href python: view.url(view.context,'pipetally')">Pipe Tallies</a>
