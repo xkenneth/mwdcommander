@@ -1,0 +1,12 @@
+Server Status
+<table>
+  <tr>
+    <td>Connected:</td>
+    <td tal:content="view/context/td_db/connected"/>
+  </tr>
+  <tr>
+    <td tal:content="view/context/td_db/host"/>
+    <td tal:content="view/context/td_db/port"/>
+  </tr>
+</table>
+  
