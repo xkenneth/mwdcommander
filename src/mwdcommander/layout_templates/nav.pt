@@ -1,19 +1,22 @@
 <table>
   <tr>
     <td>
-      <a tal:attributes="href python: view.__parent__.application_url('')">Home</a>
+      <a tal:attributes="href python: view.url(view.context,'')">Home</a>
     </td>
     <td>	
-      <a tal:attributes="href python: view.__parent__.application_url('bignumbers')">MWD</a>
+      <a tal:attributes="href python: view.url(view.context,'bignumbers')">MWD</a>
     </td>
     <td>
-      <a tal:attributes="href python: view.__parent__.application_url('pipetally')">Pipe Tallies</a>
+      <a tal:attributes="href python: view.url(view.context,'pipetally')">Pipe Tallies</a>
     </td>
     <td>
-      <a tal:attributes="href python: view.__parent__.application_url('comments')">Comments</a>
+      <a tal:attributes="href python: view.url(view.context,'comments')">Comments</a>
     </td>
     <td>
-      <a tal:attributes="href python: view.__parent__.application_url('depthlog')">Depth</a>
+      <a tal:attributes="href python: view.url(view.context,'depthlog')">Depth</a>
+    </td>
+    <td>
+      <a tal:attributes="href python: view.url(view.context,'system')">System</a>
     </td>
   </tr>
 </table>

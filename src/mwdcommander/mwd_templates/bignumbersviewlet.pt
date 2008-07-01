@@ -14,9 +14,9 @@
 	<p tal:on-error="string: Error! No Data is available!">
 	  <tr>
 	    <td>
-	      <font color="green" size=100><b>
-		  <p tal:content="python:context.td_db.slice('inclination',last=1)[0].value*180.0/10000.0"></p>
-	      </b></font>
+	      <p class="data" tal:content="python:context.td_db.slice('inclination',last=1)[0].value*180.0/10000.0"></p>
+	      <p class="timestamp" tal:content="python:context.td_db.slice('inclination',last=1)[0].timeStamp"></p>
+	      <p class="age" tal:content="python:context.time()-context.td_db.slice('inclination',last=1)[0].timeStamp"></p>
 	    </td>
 	  </tr>
 	</p>
@@ -30,9 +30,9 @@
 	  <p tal:on-error="string: Error! No Data is available!">
 	    <tr>
 	      <td>
-		<font size=100 color="red"><b>
-		    <p tal:content="python:context.td_db.slice('azimuth',last=1)[0].value*360.0/10000.0"></p>
-		</b></font>
+		<p class="data" tal:content="python:context.td_db.slice('azimuth',last=1)[0].value*360.0/10000.0"></p>
+		<p class="timestamp" tal:content="python:context.td_db.slice('azimuth',last=1)[0].timeStamp"></p>
+		<p class="age" tal:content="python:context.time()-context.td_db.slice('azimuth',last=1)[0].timeStamp"></p>
 	      </td>
 	    </tr>
 	  </p>
@@ -47,9 +47,9 @@
 	  <p tal:on-error="string: Error! No Data is available!">
 	    <tr>
 	      <td>
-		<font size=100 color="blue"><b>
-		    <p tal:content="python:'%5.2f' % float(pow(10.0,(context.td_db.slice('gammaray',last=1)[0].value*2.0/10000.0))*5.0)"></p>
-		</b></font>
+		<p class="data" tal:content="python:'%5.2f' % float(pow(10.0,(context.td_db.slice('gammaray',last=1)[0].value*2.0/10000.0))*5.0)"></p>
+		<p class="timestamp" tal:content="python: context.td_db.slice('gammaray',last=1)[0].timeStamp"></p>
+		<p class="age" tal:content="python: context.time()-context.td_db.slice('gammaray',last=1)[0].timeStamp"></p>
 	      </td>
 	    </tr>
 	  </p>
@@ -64,9 +64,9 @@
 	  <p tal:on-error="string: Error! No Data is available!">
 	    <tr>
 	      <td>
-		<font size=100><b>
-		    <p tal:content="python:context.td_db.slice('toolface',last=1)[0].value*360.0/10000.0"></p>
-		</b></font>
+		<p class="data" tal:content="python:context.td_db.slice('toolface',last=1)[0].value*360.0/10000.0"></p>
+		<p class="timestamp" tal:content="python:context.td_db.slice('toolface',last=1)[0].timeStamp"></p>
+		<p class="age" tal:content="python:context.time()-context.td_db.slice('toolface',last=1)[0].timeStamp"></p>
 	      </td>
 	    </tr>
 	  </p>

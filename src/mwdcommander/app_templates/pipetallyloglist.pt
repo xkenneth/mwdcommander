@@ -1,6 +1,6 @@
 <span tal:repeat="log view/context/pipetallies/items">
   <div tal:attributes="id python: 'n'+log.id">
-    <a tal:content="log/name" tal:attributes="href python: view.__parent__.application_url('pipetallies') + '/' + unicode(log.id)"/>
+    <a tal:content="log/name" tal:attributes="href python: view.url(view.context,'pipetallies') + '/' + unicode(log.id)"/>
     <a tal:attributes="href python: str(view.url(view.context['pipetallies']))+'/delete?id='+str(log.id)">Delete</a>
   </div>
 </span>

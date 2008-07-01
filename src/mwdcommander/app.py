@@ -43,15 +43,20 @@ from depth import Depth, IDepth
 ### MWD ###
 class MWDCommander(grok.Application, grok.Container):
     td_db = DataBase.Layer("localhost",8050)
+    def time(self):
+        return mx.DateTime.now()
 
 ### VIEWS ###
 class Index(grok.View):
     grok.context(MWDCommander)
-    pass # see app_templates/index.pt
-
+    def update(self):
+        #pdb.set_trace()
+        pass
+    
 class BigNumbers(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh=True
 
 class MWD(grok.View):
     grok.context(MWDCommander)
@@ -60,61 +65,79 @@ class MWD(grok.View):
     def update(self):
         pass
 
+class System(grok.View):
+    grok.context(MWDCommander)
+    grok.template('index')
+
 class Pulses(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class Chirps(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class Frames(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class ToolStatus(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class GammaRay(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class Azimuth(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class Inclination(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class GX(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class GY(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class GZ(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class HX(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class HY(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class HZ(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class PulseCount(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
+    refresh = True
 
 class PipeTally(grok.View):
     grok.template('index')
@@ -145,23 +168,28 @@ class DepthLog(grok.View):
 
 class AppCSS(grok.Viewlet):
     grok.viewletmanager(Head)
-    grok.context(MWDCommander)
+    grok.context(Interface)
 
 class Welcome(grok.Viewlet):
     grok.viewletmanager(MainContent)
     grok.view(Index)
+    grok.order(2)
+    
 
-
+class ConnectionStatus(grok.Viewlet):
+    grok.viewletmanager(MainContent)
+    grok.view(System)
+    grok.order(1)
 
 class PipeTallyLogList(grok.Viewlet):
     grok.viewletmanager(MainContent)
     grok.view(PipeTally)
-    grok.order(1)
+    grok.order(2)
 
 ### Pipe Tally Log Management ###
 class AddPipeTallyLog(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(0)
+    grok.order(1)
     grok.view(PipeTally)
     
     def update(self):
@@ -195,7 +223,7 @@ class AddPipeTallyLogForm(grok.AddForm):
 ### Comments Management ###
 class ViewComments(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(1)
+    grok.order(2)
     grok.view(Comments)
     
     def update(self):
@@ -204,7 +232,7 @@ class ViewComments(grok.Viewlet):
 
 class ViewDepth(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(1)
+    grok.order(2)
     grok.view(DepthLog)
     
     def update(self):
@@ -213,7 +241,7 @@ class ViewDepth(grok.Viewlet):
 
 class AddComment(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(0)
+    grok.order(1)
     grok.view(Comments)
     
     def update(self):
@@ -225,7 +253,7 @@ class AddComment(grok.Viewlet):
 
 class AddDepth(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(0)
+    grok.order(1)
     grok.view(DepthLog)
      
     def update(self):
@@ -267,8 +295,6 @@ class AddDepthForm(grok.AddForm):
         app = get_application(self.context)
         self.redirect(self.url(app,'depthlog'))
 
-
-        
 ### XML-RPC ###
 
 class MWDCommanderXMLRPC(grok.XMLRPC):
@@ -301,13 +327,3 @@ class MWDCommanderXMLRPC(grok.XMLRPC):
             return None
         
         return [depth.depth, depth.time]
-    
-        
-
-        
-            
-        
-
-
-
-        

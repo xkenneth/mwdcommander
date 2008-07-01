@@ -1,18 +1,24 @@
 <html>
   <head>
     <tal:head content="structure provider:head" />
+    <meta tal:condition="view/refresh" tal:attributes="http-equiv python: 'refresh';content python: '5'" tal:on-error="python: ''"/>
   </head>
   <body>
-    <table>
-      <tr>
-	<td>
-	  <tal:navigation content="structure provider:navigation" />
-	</td>
-      </tr>
-      <tr>
-	<td><tal:left content="structure provider:left" /></td>
-	<td><tal:content content="structure provider:content" /></td>
-      </tr>
-    </table>
+    <div id="prebox">
+    <tal:pre content="structure provider:pre" />
+    <div id="navbox">
+      <tal:navigation content="structure provider:navigation" />
+    </div>
+    <div id="widgetbox">
+      <tal:widget content="structure provider:widget" />
+    </div>
+    <div id="sidebox">
+      <tal:left content="structure provider:left" />
+    </div>
+    <div id="contentbox">
+      <tal:content content="structure provider:content" />
+    </div>
+    <tal:post content="structure provider:post" />
+    </div>
   </body>
 </html>

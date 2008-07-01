@@ -1,0 +1,60 @@
+body {
+      background-color: #b1b1b1;
+}
+
+.data {
+      color: #c91711;
+      font-weight: bold;
+      font-size: 30px;
+}
+
+#prebox {
+	width: 94%;
+	position: relative;
+	left: 3%;
+}
+
+#outer {
+       height: 95%;
+}
+
+#navbox {
+	position: absolute;
+	left: 1%;
+	width: 58%;
+	top: 2%;
+	height: 10%;
+}
+
+#widgetbox {
+	      position: absolute;
+	         width: 38%;
+		    top: 2%;
+		       left: 60%;
+}
+
+#contentbox {
+	        position: absolute;
+		    left: 9%;
+		        width: 89%;
+			    height: 83%;
+			        top: 10%;
+}
+
+#main {
+      height: 100%;
+      padding: 1%;
+}
+
+#sidebox {
+	  position: absolute;
+	   left: 1%;
+	    top: 10%;
+}
+
+#side {
+      padding: 10%;
+}
+
+
+

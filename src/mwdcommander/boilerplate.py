@@ -1,5 +1,6 @@
 ### GROK ###
 import grok
+import pdb
 
 grok.templatedir('app_templates')
 
@@ -47,7 +48,11 @@ class GenericContainer(grok.Container):
             
 
 class Index(grok.View):
-    pass
+    def update(self):
+        pdb.set_trace()
+    
+    #def app(self):
+    #    return get_application(self.context)
 
 class ViewContent(grok.Viewlet):
     grok.viewletmanager(MainContent)
@@ -58,11 +63,11 @@ class Delete(grok.View):
     def update(self,id=None):
         if id is not None:
             self.context.delete(id)
-        self.redirect(self.url(self.context))
+        self.redirect(self.url(get_application(self.context)))
 
 class DeleteView(grok.Viewlet):
     grok.viewletmanager(MainContent)
-    grok.order(0)
+    grok.order(1)
 
 def get_application(context):
     obj = context
