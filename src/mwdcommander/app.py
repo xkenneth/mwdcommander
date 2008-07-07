@@ -69,76 +69,6 @@ class System(grok.View):
     grok.context(MWDCommander)
     grok.template('index')
 
-class Pulses(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class Chirps(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class Frames(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class ToolStatus(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class GammaRay(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class Azimuth(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class Inclination(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class GX(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class GY(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class GZ(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class HX(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class HY(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class HZ(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
-class PulseCount(grok.View):
-    grok.context(MWDCommander)
-    grok.template('index')
-    refresh = True
-
 class PipeTally(grok.View):
     grok.template('index')
 
@@ -251,6 +181,7 @@ class AddComment(grok.Viewlet):
     def render(self):
         return self.form.render()
 
+### DEPTH MANAGEMENT ###
 class AddDepth(grok.Viewlet):
     grok.viewletmanager(MainContent)
     grok.order(1)
